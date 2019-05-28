@@ -1,6 +1,6 @@
 public class Work_2019_2_12 {
 	
-    public static String stringCompress(String str){//×Ö·û´®¼òµ¥Ñ¹Ëõ
+    public static String stringCompress(String str){//å­—ç¬¦ä¸²ç®€å•å‹ç¼©
         int pos = 0;
         int count = 0;
         char[] chs = str.toCharArray();
@@ -21,11 +21,12 @@ public class Work_2019_2_12 {
             }else{
                 sb.append(temp);
             }
+		count = 1;
         }
         return sb.toString();
     }
 
-    public static int isNumeric(String str){//Ê¶±ğ×ÖÄ¸¸öÊı
+    public static int isNumeric(String str){//è¯†åˆ«å­—æ¯ä¸ªæ•°
         int count  = 0;
         char[] chs = str.toCharArray();
         for (int i = 0; i <= chs.length - 1; i++) {
@@ -37,7 +38,7 @@ public class Work_2019_2_12 {
         return  count;
     }
 
-    public static String reverseSentence(String str) {//±£Áôµ¥´Ê¾ä×Ó·­×ª
+    public static String reverseSentence(String str) {//ä¿ç•™å•è¯å¥å­ç¿»è½¬
         char[] chr = str.toCharArray();
         int pos = 0;
         StringBuffer temp = new StringBuffer();
@@ -57,7 +58,7 @@ public class Work_2019_2_12 {
         return sb.toString();
     }
 
-    public static String leftRotateString(String str,int n){//Ö¸¶¨Î»ÖÃÖ®Ç°µÄ×Ö·û´®·­×ª
+    public static String leftRotateString(String str,int n){//æŒ‡å®šä½ç½®ä¹‹å‰çš„å­—ç¬¦ä¸²ç¿»è½¬
         StringBuffer change = new StringBuffer();
         change = new StringBuffer(str.substring(0, n));
         change.reverse();
