@@ -148,4 +148,71 @@ public class MyLinkedList<E> {
         return this.size;
     }
 
+    /**
+     * get previous node of current node
+     * @param cur current node, you need its previous node
+     * @return previous node
+     */
+    public Node<E> getPrevious(Node<E> cur) {
+        Node<E> pre = this.head;
+        while (pre.next != null){
+            if(pre.next == cur){
+                return pre;
+            }
+            pre = pre.next;
+        }
+        return null;
+    }
+
+    /**
+     * delete the node you selected
+     * @param data  the part of the data of the node that you will delete
+     */
+    public void remove(E data){
+        if(isEmpty())
+            throw new UnsupportedOperationException("your list is empty, the size is :" + this.size);
+        Node<E> cur = this.head;
+        Node<E> temp = null;
+        while (cur.next != null){
+            if(cur == this.head){
+                this.head = this.head.next;
+            }else{
+                if(cur.data == data) {
+                    Node<E> pre = getPrevious(cur);
+                    pre.next = cur.next;
+                }
+            }
+            cur = cur.next;
+        }
+        System.err.println("你要删除的节点不在本链表");
+    }
+
+    /**
+     * delete all the nodes of the list
+     */
+    public void clear(){
+        this.head = null;
+        this.last = null;
+    }
+
+    /**
+     * get the node by index
+     * @param index , the index of the node you want to get
+     * @return node that you want to get
+     */
+    public Node<E> get(int index) {
+        if(index > this.size - 1 || index < 0)
+            throw new IndexOutOfBoundsException("数组下标越界" + index);
+        int count = 0;
+        Node<E> cur = this.head;
+        while (cur.next != null){
+            if(count == index){
+                return cur;
+            }
+            cur = cur.next;
+            count += 1;
+        }
+        return null;
+    }
+
 }
