@@ -215,4 +215,76 @@ public class MyLinkedList<E> {
         return null;
     }
 
+    /**
+     * replace the node at the index location
+     * @param data and index, use data to initial the node to replace,
+     *            index point the location you are inserting
+     * @param index
+     */
+    public void set(E data, int index) {
+        if(index > this.size || index < 0)
+            throw new IndexOutOfBoundsException("该位置越界" + index);
+        Node<E> cur = this.head;
+        Node<E> node = new Node<>(data);
+        int count  = 0;
+        while (cur.next != null){
+            if(count == index) {
+                if(cur == this.head) {
+                    node.next = cur.next;
+                    this.head = node;
+                    return;
+                }
+
+                if(cur == this.last){
+                    Node<E> pre = getPrevious(cur);
+                    pre.next = node;
+                    this.last = node;
+                    return;
+                }
+                Node<E> pre = getPrevious(cur);
+                node.next = cur.next;
+                pre.next = node;
+            }
+            cur = cur.next;
+            count += 1;
+        }
+    }
+
+    /**
+     * add node to the pointed location by index
+     * @param data the data of data
+     * @param index location of the list
+     */
+    public void  add(E data, int index) {
+        if(index < 0 || index > this.size){
+            throw new IndexOutOfBoundsException("插入位置不存在" + index);
+        }
+
+        if(isEmpty()) {
+            addFirst(data);
+            return;
+        }
+        if(index == 0) {
+            addFirst(data);
+            return;
+        }
+        if(index == this.size -1){
+            addLast(data);
+            return;
+        }
+
+        Node<E> node = new Node<>(data);
+        int count = 0;
+        Node<E> cur = this.head;
+        while (cur.next != null){
+            if(index == count){
+                Node<E> pre = getPrevious(cur);
+                node.next = cur;
+                pre.next = node;
+                return;
+            }
+        }
+
+    }
+
 }
