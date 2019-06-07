@@ -1,5 +1,7 @@
 package MyLinkedList;
 
+import java.util.NoSuchElementException;
+
 /**
  * @Classname MyLinkedList
  * @Description TODO
@@ -185,6 +187,33 @@ public class MyLinkedList<E> {
             cur = cur.next;
         }
         System.err.println("你要删除的节点不在本链表");
+    }
+
+
+    /**
+     * remove the elem by index
+     * @param index , it is the location of the node you want to delete
+     */
+    public void remove(int index) {
+
+        if(index > this.size || index < 0){
+            throw new IndexOutOfBoundsException("该位置不存在" + index);
+        }
+
+        if(index == 0){
+            this.head = this.head.next;
+        }
+
+        int counter = 0;
+
+        Node<E> cur = this.head;
+        while(cur.next != null){
+            if(counter == index){
+                Node<E> pre = getPrevious(cur);
+                pre.next = cur.next;
+            }
+            cur = cur.next;
+        }
     }
 
     /**
