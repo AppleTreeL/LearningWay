@@ -1,21 +1,32 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
+#define COL 12
+#define ROW 7
 
-void drawMap(int row, int col) {
-	int i = 0;
-	int j = 0;
-	for (i = 0; i < row; i++) {
-		for (j = 0; j < col; j++) {
-			printf("+");
+void drawMap(char map[ROW][COL]) {
+	for (int i = 0; i < ROW; i++) {
+		for (int  j = 0; j < COL; j++)
+		{
+			map[i][j] = '+';
+		}
+	}
+}
+
+void printMap(char map[ROW][COL]) {
+	for (int i = 0; i < ROW; i++) {
+		for (int j = 0; j < COL; j++)
+		{
+			printf("%c", map[i][j]);
 		}
 		printf("\n");
 	}
 }
 
-void player_1Set(int row, int col, char** map) {
+void player_1Set(int row, int col, char map[ROW][COL]) {
 	map[row][col] = '*';
 }
 
-void player_2Set(int row, int col, char** map) {
+void player_2Set(int row, int col, char map[ROW][COL]) {
 	map[row][col] = '#';
 }
 
@@ -37,7 +48,7 @@ int checkWinner(int num, char player) {
 	}
 }
 
-void judgeWinner(int row, int col, int rowNum, int  colNum, char map[3][6]) {
+void judgeWinner(int row, int col, int rowNum, int  colNum, char map[ROW][COL]) {
 	/*ºáÏòÅÐ¶Ï*/
 	int i = row;
 	int j = col;
@@ -67,7 +78,7 @@ void judgeWinner(int row, int col, int rowNum, int  colNum, char map[3][6]) {
 
 
 	/*×ÝÏòÅÐ¶Ï*/
-	for (i = row; j < rowNum -1; i++) {
+	for (i = row; i < rowNum -1; i++) {
 		if (map[i][j] != map[i + 1][j])
 			break;
 		counter += 1;
@@ -98,7 +109,10 @@ void judgeWinner(int row, int col, int rowNum, int  colNum, char map[3][6]) {
 			counter += 1;
 		}
 	}
-	checkWinner(counter, map[i][j]);
+	if (checkWinner(counter, map[i][j]) == 1) {
+		checkWinner(counter, map[i][j]);
+		return;
+	}
 	for (i = row; i >1; i--) {
 		for (j = col; j > 0; j--) {
 			if (map[i][j] != map[i - 1][j - 1]) {
@@ -107,16 +121,34 @@ void judgeWinner(int row, int col, int rowNum, int  colNum, char map[3][6]) {
 			counter += 1;
 		}
 	}
-	checkWinner(counter, map[i][j]);
-	printf("No winner");
+	if (checkWinner(counter, map[i][j]) == 1) {
+		checkWinner(counter, map[i][j]);
+		return;
+	}
+	i = row;
+	j = col;
+	counter = 0;
+	printf("No winner\n");
 }
 
 int main() {
-	char map[3][5] = {
-	'*','*','*','*','*',
-	'*','*','#','*','*',
-	'*','*','#','*','#'
-	};
-	judgeWinner(0, 0, 3, 5, map);
+	int x = 0;
+	int y = 0;
+	char map[ROW][COL];
+	drawMap(map);
+	while (1)
+	{
+		//system("cls");
+		printf("please player_1 set\n");
+		scanf("%d %d", &x, &y);
+		player_1Set(x, y, map);
+		judgeWinner(x, y, ROW, COL, map);
+		printf("please player_2 set\n");
+		scanf("%d %d", &x, &y);
+		player_2Set(x, y, map);
+		judgeWinner(x, y, ROW, COL, map);
+		printMap(map);
+	}
+	//judgeWinner(0, 0, 3, 5, map);
 	return 0;
 }
