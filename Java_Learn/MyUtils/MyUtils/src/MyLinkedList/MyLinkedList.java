@@ -178,10 +178,12 @@ public class MyLinkedList<E> {
         while (cur.next != null){
             if(cur == this.head){
                 this.head = this.head.next;
+                this.size -= 1;
             }else{
                 if(cur.data == data) {
                     Node<E> pre = getPrevious(cur);
                     pre.next = cur.next;
+                    this.size -= 1;
                 }
             }
             cur = cur.next;
@@ -211,8 +213,10 @@ public class MyLinkedList<E> {
             if(counter == index){
                 Node<E> pre = getPrevious(cur);
                 pre.next = cur.next;
+                this.size -= 1;
             }
             cur = cur.next;
+            counter += 1;
         }
     }
 
@@ -285,6 +289,7 @@ public class MyLinkedList<E> {
      * @param index location of the list
      */
     public void  add(E data, int index) {
+
         if(index < 0 || index > this.size){
             throw new IndexOutOfBoundsException("插入位置不存在" + index);
         }
@@ -312,8 +317,34 @@ public class MyLinkedList<E> {
                 pre.next = node;
                 return;
             }
+            count += 1;
         }
-
     }
 
+    public void view(){
+        Node<E> cur = this.head;
+        System.out.print("now: ");
+        while (cur.next != null){
+            System.out.print(cur.data + ",");
+            cur = cur.next;
+        }
+        System.out.print(cur.data);
+        System.out.println();
+    }
+
+    //@Test
+    public static void main(String[] args) {
+        MyLinkedList<String> myLinkedList = new MyLinkedList<String>();
+        myLinkedList.addLast("java");
+        myLinkedList.addLast("C++");
+        myLinkedList.addLast("python");
+        myLinkedList.view();
+        myLinkedList.addFirst("C");
+        myLinkedList.view();
+        myLinkedList.remove(1);
+        myLinkedList.view();
+        myLinkedList.set("yuanxiuchao",0);
+        myLinkedList.view();
+        System.out.println(myLinkedList.size());
+    }
 }
