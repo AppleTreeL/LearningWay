@@ -30,7 +30,7 @@ public class SendMessageToServer extends Thread {
                 String message = scanner.nextLine();
                 printStream.println(message);
                 printStream.flush();
-                if(message.equals("bye")){
+                if(message.equals("quit")){
                     break;
                 }
             }

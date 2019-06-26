@@ -103,7 +103,7 @@ public class ClientHandler implements Runnable {
         try {
             OutputStream out = client.getOutputStream();
             PrintStream send = new PrintStream(out);
-            send.print(s);
+            send.println(s);
             send.flush();
         } catch (IOException e) {
             e.printStackTrace();
