@@ -84,17 +84,17 @@ public class DataBaseOperation {
     }
 
     //更新MemoGroup (name)
-    Boolean updateMemoGroup(MemoGroup memoGroup){
+    public static Boolean updateMemoGroup(MemoGroup memoGroup){
         Connection connection = getConnection();
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement("update " +
-                    "memo_group set id=?, name=?, created_time=?, modify_time=? " +
+                    "memo_group set name=?, created_time=?, modify_time=? " +
                     "where id=?");
-            preparedStatement.setInt(1,memoGroup.getId());
-            preparedStatement.setString(2,memoGroup.getName());
-            preparedStatement.setTimestamp(3, Timestamp.valueOf(memoGroup.getCreatedTime()));
-            preparedStatement.setTimestamp(4, Timestamp.valueOf(memoGroup.getModifyTime()));
+            preparedStatement.setInt(4,memoGroup.getId());
+            preparedStatement.setString(1,memoGroup.getName());
+            preparedStatement.setTimestamp(2, Timestamp.valueOf(memoGroup.getCreatedTime()));
+            preparedStatement.setTimestamp(3, Timestamp.valueOf(memoGroup.getModifyTime()));
 
             preparedStatement.executeUpdate();
             preparedStatement.close();
@@ -177,7 +177,12 @@ public class DataBaseOperation {
         System.out.println(memoGroup);
         */
 
-        /*测试删除*/
+        /*测试更新*/
+        MemoGroup memo = new MemoGroup(6, "Calvin", LocalDateTime.now(), LocalDateTime.now());
+        System.out.println(updateMemoGroup(memo));
+
+        /*测试删除
         System.out.println(deleteMemoGroupByName("huhai"));
+        */
     }
 }

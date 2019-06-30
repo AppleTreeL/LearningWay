@@ -17,6 +17,13 @@ public class MemoGroup {
     public MemoGroup() {
     }
 
+    public MemoGroup(int id, String name, LocalDateTime createdTime, LocalDateTime modifyTime) {
+        this.id = id;
+        this.name = name;
+        this.createdTime = createdTime;
+        this.modifyTime = modifyTime;
+    }
+
     public int getId() {
         return id;
     }
