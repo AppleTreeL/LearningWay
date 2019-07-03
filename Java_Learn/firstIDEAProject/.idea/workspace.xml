@@ -28,7 +28,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TestMyString.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
+            <state relative-caret-position="21">
               <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -38,14 +38,41 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/countPipSi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="34" column="23" lean-forward="true" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+            <state relative-caret-position="630">
+              <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/countReverseNum.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/firstIDEAProject.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/countNumString.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -66,6 +93,9 @@
         <option value="$PROJECT_DIR$/src/TestMyString.java" />
         <option value="$PROJECT_DIR$/src/SortMethod.java" />
         <option value="$PROJECT_DIR$/src/countPipSi.java" />
+        <option value="$PROJECT_DIR$/src/countReverseNum.java" />
+        <option value="$PROJECT_DIR$/src/counterNumString.java" />
+        <option value="$PROJECT_DIR$/src/countNumString.java" />
       </list>
     </option>
   </component>
@@ -80,6 +110,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -97,15 +128,15 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561993465229" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562168883895" />
     <property name="flex.debug.filter.swf.load.unload" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../intelij_IDEA" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -119,30 +150,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.countPipSi">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
-      <module name="untitled104" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="应用程序" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
-      <module name="firstIDEAProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.company.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.countNumString">
     <configuration name="SortMethod" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SortMethod" />
       <module name="firstIDEAProject" />
@@ -157,6 +165,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="countNumString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="countNumString" />
+      <module name="firstIDEAProject" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="countPipSi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="countPipSi" />
       <module name="firstIDEAProject" />
@@ -165,14 +180,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="countReverseNum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="countReverseNum" />
+      <module name="firstIDEAProject" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.TestMyString" />
       <item itemvalue="Application.SortMethod" />
       <item itemvalue="Application.countPipSi" />
+      <item itemvalue="Application.countReverseNum" />
+      <item itemvalue="Application.countNumString" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.countNumString" />
+        <item itemvalue="Application.countReverseNum" />
         <item itemvalue="Application.countPipSi" />
         <item itemvalue="Application.SortMethod" />
         <item itemvalue="Application.TestMyString" />
@@ -197,21 +222,26 @@
       <workItem from="1561903684390" duration="5521000" />
       <workItem from="1561937122885" duration="5670000" />
       <workItem from="1561981797419" duration="9966000" />
+      <workItem from="1562043253049" duration="763000" />
+      <workItem from="1562063676808" duration="1585000" />
+      <workItem from="1562149946492" duration="4868000" />
+      <workItem from="1562165313536" duration="3490000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24123000" />
+    <option name="totallyTimeSpent" value="34829000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.13203754" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.21514745" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info id="设计师" order="7" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -221,15 +251,15 @@
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" weight="0.32956153" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.32956153" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.31117398" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.29844412" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.3437058" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="消息" order="12" />
       <window_info anchor="bottom" id="运行" order="13" weight="0.32956153" />
       <window_info anchor="bottom" id="调试" order="14" />
-      <window_info anchor="bottom" id="Messages" order="15" />
+      <window_info anchor="bottom" id="Messages" order="15" weight="0.32956153" />
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
@@ -249,18 +279,15 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/countPipSi.java</url>
-          <line>25</line>
+          <url>file://$PROJECT_DIR$/src/countNumString.java</url>
+          <line>26</line>
           <properties />
-          <option name="timeStamp" value="23" />
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/firstIDEAProject.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -276,9 +303,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/firstIDEAProject/countPipSi.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-421">
+          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#1667#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/TestMyString.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
+        <state relative-caret-position="21">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -289,11 +326,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/countPipSi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="34" column="23" lean-forward="true" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+        <state relative-caret-position="630">
+          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/countReverseNum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/firstIDEAProject.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/countNumString.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
         </state>
       </provider>
     </entry>
