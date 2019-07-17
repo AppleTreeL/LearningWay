@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<!--<body>
+	</body>-->
+	
+<frameset rows="20%,*,10%">
+	<!--每一个frame包含的html页面-->
+	<frame src="header.html" />
+	<frameset cols="15%,*">
+		<frame src="menu.html" />
+		<!--
+			frame	
+				name属性：给当前main.html的frame起名称
+			
+		-->
+		<frame src="main.html" name="main" />
+	</frameset>
+	
+	<frame src="footer.html" />
+</frameset>
+</html>

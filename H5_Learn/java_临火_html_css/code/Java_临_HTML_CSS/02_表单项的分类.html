@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>分类</title>
+<!--
+	常用的：
+		input标签
+				type="text" :文本输入哭
+				type="password":密码输入框
+				type="radio":单选按钮
+				type="checkbox":复选框
+				type="date"(h5提供的日期组件)
+				type="tel"(h5提供的组件)
+				type="hidden":隐藏域（可以给传递参数）
+				type="file"：上传文件
+				type="button"：普通按钮，必须指定value属性
+				type="submit":提交
+				type="reset":重置按钮
+				
+		select标签
+			下拉菜单
+				option：下拉菜单（应用场景：省市联动）
+		textarea：文本域  （应用场景：个人自我描述）
+-->
+	</head>
+<body>
+<form action="#" method="get">
+	<!--
+		input的h5 属性：placeholder 默认值
+	-->
+用户名：<input type="text" name="username" min="5" max="10" placeholder="请输入用户名" /><br />
+密码：<input type="password" name="pwd" placeholder="请输入密码" /><br />
+性别：
+<!--
+	将当前信息看成同一组信息，相同的name属性
+-->
+<input type="radio" value="男" name="gender" />男
+<input type="radio" value="女" name="gender" />女<br />
+爱好:
+<!--
+	
+	将当前信息看成同一组信息，相同的name属性
+-->
+<input type="checkbox" value="足球" name="hobby" />足球
+<input type="checkbox" value="lol" name="hobby" />lol
+<input type="checkbox" value="跑步" name="hobby" />跑步<br />
+出生日期：
+<input type="date" name="date" /><br />
+手机号：<input type="tel" name="phone" /><br />
+邮箱：<input type="email" name="email" /><br />
+上传图片:
+<input type="file" name="photo" />
+<!--隐藏域 携带数据-->
+<input type="hidden" name="id" /><br />
+籍贯:
+<select name="jiguan">
+	<!--下拉选项-->
+	<option value="请选择">-请选择-</option>
+	<option value="陕西省">陕西省</option>
+	<option value="山西省">山西省</option>
+	<option value="广东省">广东省</option>
+	<option value="贵州省">贵州省</option>
+</select>
+<select>
+	
+</select>
+
+<br />
+自我描述：
+<!--
+	rows:可以写多少行
+	cols:一行中的字符数
+-->
+<textarea rows="5" cols="20">
+热于追求代码严谨！
+</textarea>
+<input type="button" value="普通按钮" />
+<button>组件按钮</button>
+<input type="submit" value="提交" />
+<input type="reset" value="重置" />
+</form>
+</body>
+</html>

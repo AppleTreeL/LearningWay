@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>html的文本标签</title>
+		<style>
+			/*css代码*/
+			div{
+				border: 1px solid #F00;
+			}
+		</style>
+	</head>
+<body>
+<!--标题标签-->
+<h1>标题</h1>
+<h2>标题</h2>
+<h3>标题</h3>
+<h4>标题</h4>
+<h5>标题</h5>
+<h6>标题</h6>
+<!--<h7>标题</h7>-->
+<!--水平线：hr-->
+<hr />
+陕西省西安市
+<address>陕西省西安市</address><br />
+<code>public static void main(){}</code>
+<br />
+<p>
+床前明月光，
+</p>
+<p>
+地上鞋两双。
+</p>
+<!--
+	滚动标签：
+		常用的属性
+				behavior:滚动方式
+				     alternate：来回滚动
+				     scroll:交替滚动（默认值）
+				     slide:滚动到一边结束
+				scrollamount:滚动速度:正整数值（值越大，速度越快）
+				loop:滚动的次数
+				bgcolor:背景色 (bgcolor标签的背景属性)
+				
+				     css背景属性：background-color
+				direction:滚动方向（默认值：left：由右向左）		
+-->
+<marquee behavior="alternate" loop="2"
+scrollamount="25" direction="right" bgcolor="pink">我爱高圆圆</marquee>
+
+<!--段落缩进：
+	 blockquote:引用标签	    （q标签：引用标签）
+	
+-->
+<p>
+第一章内容第一章内容第一章内容第一章内容第一章内容第一章内容第一章内容第一章内容
+第一章内容第一章内容第一章内容第一章内容第一章内容第一章内容
+</p>
+<blockquote>
+解释说明解释说明解释说明解释说明解释说明解释说明
+</blockquote>
+
+<font color="blue" size="5">字体标签</font><br />
+<strong>今天天气不错！</strong><br />
+<em>今天天气不错！</em>
+<!--上下标：sup/sub
+		应用场景：页面的底部：版权所有和注册商标
+		
+-->
+数学公式：X^2    <br /> X<sup>2</sup>
+<br />
+化学公式：H2O  <br />
+H<sub>2</sub>O<br />
+<!--pre：原样输出-->
+<pre>
+function checkUsername(){
+	var username = document.getElementById("id");
+}
+</pre>
+<!--
+	列表标签
+		无序列表
+			ul	
+				属性：type：指定li前面标记项 :默认值：disc
+-->
+你喜欢的运动？
+<ul type="square">
+	<li>足球</li>
+	<li>乒乓球</li>
+	<li>跑步</li>
+</ul>
+
+
+<!--有序列表：
+	
+	 ol
+	 	type="1"
+	 	li
+-->
+你喜欢的明星？
+<ol type="I">
+	<li>拉姆</li>
+	<li>姆吧佩</li>
+	<li>克劳泽</li>
+</ol>
+<!--块标签
+	布局：
+		table：表格布局（以前）
+		div+css ：层级布局
+		div：占一行的（）
+	
+-->
+<div>div1</div>
+<div>div2</div>
+<!--行内标签
+	经常在js的表单验证中使用
+	
+-->
+<span>span1</span>
+<span>span2</span><br />
+xx项目组织结构列表：<!--dl dt dd-->
+<dl>
+	<dt>攻城狮</dt>
+	<dd>攻城狮1</dd>
+	<dd>攻城狮2</dd>
+</dl>
+
+
+</body>
+</html>

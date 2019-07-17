@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表格标签</title>
+<!--
+	table:表格标签
+		属性：
+			border：边框大小（px）
+			align：在浏览器中显示对其方式
+			bgcolor：背景
+			width/height：(表格宽高：px、百分比)
+			cellspacing:控制单元格和边框之间的空隙
+			
+		作用：表格标签来进行网页布局
+	    
+	    行标签:tr
+	   表头标签：th(自动居中加粗)
+	  单元格标签：td
+	  
+	  	应用：
+	  		合并行：rowspan
+	  		合并列：colspan
+	 
+-->
+
+	</head>
+<body>
+<table border="1px" cellspacing="0" align="center" width="300px" height="300px">
+	<tr>
+		<th>姓名</th>
+		<th>班级</th>
+		<th>平均成绩</th>
+	</tr>
+	<tr align="center">
+		<td rowspan="2">狗娃</td>
+		<td>
+			<!--单元格中嵌套表格-->
+			<table border="1px" width="100%" cellspacing="0" height="100%">
+				<tr>
+					<td>11</td>
+					<td>12</td>
+					<td>13</td>
+				</tr>
+				<tr>
+					<td>21</td>
+					<td>22</td>
+					<td>23</td>
+				</tr>
+				<tr>
+					<td>31</td>
+					<td>32</td>
+					<td>33</td>
+				</tr>
+			</table>
+		</td>
+		<td>79</td>
+	</tr>
+	<tr align="center">
+		<!--<td>狗蛋</td>-->
+		<td>计算机2班</td>
+		<td>86</td>
+	</tr>
+	<tr align="center">
+		<td>狗剩</td>
+		<td colspan="2">软工1班</td>
+		<!--<td>70</td>-->
+	</tr>
+</table>
+
+</body>
+</html>
