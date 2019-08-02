@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Database_web:war exploded">
+    <output-path>D:/Program Files/apache-tomcat-9.0.6/webapps/Web-Databases</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Database_web" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="Database_web/web/Web" />
+    </root>
+  </artifact>
+</component>
