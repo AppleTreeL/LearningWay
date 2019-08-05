@@ -32,7 +32,7 @@ import static com.cashsystem.common.AcountType.CUSTOMER;
 public class HelpCommand extends AbstractCommand {
     @Override
     public void execute(Subject subject) {
-        System.out.println("helpCommand");
+        //System.out.println("helpCommand");
         Account account = subject.getAccount();
         if(account == null) {
             entranceHelp();

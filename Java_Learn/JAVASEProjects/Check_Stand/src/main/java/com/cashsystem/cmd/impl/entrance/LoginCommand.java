@@ -39,6 +39,7 @@ public class LoginCommand extends AbstractCommand {
             System.out.println(account.getAcountType() + "登陆成功");
             subject.setAccount(account);
         }else {
+            //System.out.println(account);
             System.out.println("密码或用户名错误");
         }
     }

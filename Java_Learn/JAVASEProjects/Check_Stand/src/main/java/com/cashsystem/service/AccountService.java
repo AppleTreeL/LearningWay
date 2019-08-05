@@ -21,4 +21,11 @@ public class AccountService {
         System.out.println("开始登录..........");
         return this.accountDao.login(username, password);
     }
+
+    public void register(String username, String password, String name,
+                            int account_type, int account_stsatus){
+        System.out.println("开始注册......");
+        this.accountDao.register(username, password, name,
+                account_type, account_stsatus);
+    }
 }

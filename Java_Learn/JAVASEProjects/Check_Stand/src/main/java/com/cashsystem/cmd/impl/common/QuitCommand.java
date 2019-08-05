@@ -7,6 +7,10 @@ import com.cashsystem.cmd.annotation.CustomerCommand;
 import com.cashsystem.cmd.annotation.EntranceCommand;
 import com.cashsystem.cmd.impl.AbstractCommand;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+
 /**
  * @Classname QuitCommand
  * @Description TODO
@@ -25,6 +29,30 @@ import com.cashsystem.cmd.impl.AbstractCommand;
 public class QuitCommand extends AbstractCommand {
     @Override
     public void execute(Subject subject) {
+        //String path = "mspaint";
 
+        Runtime run = Runtime.getRuntime();
+
+        try {
+
+            Process process = run.exec("cmd.exe /k start ");
+
+            InputStream in = process.getInputStream();
+
+            while (in.read() != -1) {
+
+                System.out.println(in.read());
+
+            }
+
+            in.close();
+
+            process.waitFor();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
     }
 }

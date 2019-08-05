@@ -20,7 +20,7 @@ public class AccountDao extends BaseDao {
 
     //操作数据库
     public Account login(String username, String password){
-        System.out.println("SQL 链接开始......");
+        //System.out.println("SQL 链接开始......");
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -29,8 +29,7 @@ public class AccountDao extends BaseDao {
             //get the connection to database
             connection = this.getConnection(true);
             System.out.println("获取连接成功.........");
-            String sql = "select id, username, password, name, account_type, account_status from account" +
-                    "where username=? and password=?";
+            String sql = "select id, username, password, name, account_type, account_status from account where username=? and password=?;";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, DigestUtils.md5Hex(password));
@@ -61,5 +60,34 @@ public class AccountDao extends BaseDao {
             e.printStackTrace();
         }
         return account;
+    }
+
+    public void register(String username, String password, String name,
+                            int account_type, int account_stsatus) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        //Account account = null;
+        int res = 0;
+        try {
+            connection = getConnection(true);
+            System.out.println("连接成功........");
+            String sql =
+                    "insert into account (username, password, name, account_type, account_status) values (?, ?, ?, ?, ?)";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            preparedStatement.setString(2, DigestUtils.md5Hex(password));
+            preparedStatement.setString(3, name);
+            preparedStatement.setInt(4, account_type);
+            preparedStatement.setInt(5, account_stsatus);
+            res = preparedStatement.executeUpdate();
+            if(res <= 0) {
+                System.out.println("注册失败........");
+            }else {
+                System.out.println("注册成功........");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
