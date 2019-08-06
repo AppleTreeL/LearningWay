@@ -22,10 +22,16 @@ public class AccountService {
         return this.accountDao.login(username, password);
     }
 
-    public void register(String username, String password, String name,
-                            int account_type, int account_stsatus){
+//    public void register(String username, String password, String name,
+//                            int account_type, int account_stsatus){
+//        System.out.println("开始注册......");
+//        this.accountDao.register(username, password, name,
+//                account_type, account_stsatus);
+//    }
+
+    public boolean register(Account account){
         System.out.println("开始注册......");
-        this.accountDao.register(username, password, name,
-                account_type, account_stsatus);
+        return this.accountDao.register(account);
     }
+
 }

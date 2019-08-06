@@ -5,6 +5,9 @@ import com.cashsystem.cmd.annotation.AdminCommand;
 import com.cashsystem.cmd.annotation.CommandMeta;
 import com.cashsystem.cmd.annotation.CustomerCommand;
 import com.cashsystem.cmd.impl.AbstractCommand;
+import com.cashsystem.entity.Goods;
+
+import java.util.List;
 
 /**
  * @Classname GoodsBrowseCommand
@@ -23,6 +26,14 @@ import com.cashsystem.cmd.impl.AbstractCommand;
 public class GoodsBrowseCommand extends AbstractCommand {
     @Override
     public void execute(Subject subject) {
-
+        System.out.println("浏览商品");
+        List<Goods> list = this.goodsService.queryAllGoods();
+        if(list.isEmpty()) {
+            System.out.println("商品为空...");
+        }else {
+            for (Goods goods: list) {
+                System.out.println(goods);
+            }
+        }
     }
 }

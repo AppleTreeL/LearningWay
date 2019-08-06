@@ -27,6 +27,7 @@ public class BaseDao {
                     String port = "3306";
                     ((MysqlDataSource) dataSource).setUrl("jdbc:mysql://" + (host + ":" + port) + "/check_stand");
                     ((MysqlDataSource) dataSource).setUser("root");
+                    ((MysqlDataSource) dataSource).setUseSSL(false);
                     ((MysqlDataSource) dataSource).setPassword("13488204166");
                 }
             }

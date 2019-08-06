@@ -5,10 +5,7 @@ import com.cashsystem.common.AcountType;
 import com.cashsystem.entity.Account;
 import org.apache.commons.codec.digest.DigestUtils;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  * @Classname AccountDao
@@ -62,32 +59,63 @@ public class AccountDao extends BaseDao {
         return account;
     }
 
-    public void register(String username, String password, String name,
-                            int account_type, int account_stsatus) {
+//    public void register(String username, String password, String name,
+//                            int account_type, int account_stsatus) {
+//        Connection connection = null;
+//        PreparedStatement preparedStatement = null;
+//        ResultSet resultSet = null;
+//        //Account account = null;
+//        int res = 0;
+//        try {
+//            connection = getConnection(true);
+//            System.out.println("连接成功........");
+//            String sql =
+//                    "insert into account (username, password, name, account_type, account_status) values (?, ?, ?, ?, ?)";
+//            preparedStatement = connection.prepareStatement(sql);
+//            preparedStatement.setString(1,username);
+//            preparedStatement.setString(2, DigestUtils.md5Hex(password));
+//            preparedStatement.setString(3, name);
+//            preparedStatement.setInt(4, account_type);
+//            preparedStatement.setInt(5, account_stsatus);
+//            res = preparedStatement.executeUpdate();
+//            if(res <= 0) {
+//                System.out.println("注册失败........");
+//            }else {
+//                System.out.println("注册成功........");
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    public boolean register(Account account){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        //Account account = null;
-        int res = 0;
-        try {
-            connection = getConnection(true);
-            System.out.println("连接成功........");
-            String sql =
-                    "insert into account (username, password, name, account_type, account_status) values (?, ?, ?, ?, ?)";
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,username);
-            preparedStatement.setString(2, DigestUtils.md5Hex(password));
-            preparedStatement.setString(3, name);
-            preparedStatement.setInt(4, account_type);
-            preparedStatement.setInt(5, account_stsatus);
-            res = preparedStatement.executeUpdate();
-            if(res <= 0) {
-                System.out.println("注册失败........");
-            }else {
-                System.out.println("注册成功........");
+        boolean effect = false;
+
+        try{
+            connection = this.getConnection(true);
+            String sql = "insert into account(username, password, name, account_type, account_status) values " +
+                    "(?,?,?,?,?)";
+            preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, account.getUsername());
+            preparedStatement.setString(2, DigestUtils.md5Hex(account.getPassword()));
+            preparedStatement.setString(3, account.getName());
+            preparedStatement.setInt(4, account.getAcountType().getFlag());
+            preparedStatement.setInt(5, account.getAcountStatus().getFlag());
+            effect = (preparedStatement.executeUpdate() == 1);
+            resultSet = preparedStatement.getGeneratedKeys(); // 获取自增的主键
+            if(resultSet.next()){
+                Integer id = resultSet.getInt(1);
+                account.setId(id);
             }
+            //return effect;
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            this.closeResource(resultSet, preparedStatement, connection);
         }
+        return effect;
     }
 }
