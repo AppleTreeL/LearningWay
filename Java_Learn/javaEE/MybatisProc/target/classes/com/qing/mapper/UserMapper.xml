@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qing.mapper.UserMapper">
+
+    <!--sql片段-->
+    <!--
+        经验: 1, 只写单表的
+              2, 不能带where子句
+    -->
+    <sql id="arvinSql">
+        <if test="userEx != null">
+            <if test="userEx.sex != null">
+                and user.sex = #{userEx.sex}
+            </if>
+            <if test="userEx.username != null">
+                and user.username like '%${userEx.username}%'
+            </if>
+        </if>
+    </sql>
+
+    <select id="queryUserZH" parameterType="com.qing.bz.UserBz" resultType="com.qing.po.UserEx">
+        select
+        *
+        from
+        user
+        <where>
+            <!-- <if test="userEx != null">
+                 <if test="userEx.sex != null">
+                     and user.sex = #{userEx.sex}
+                 </if>
+                 <if test="userEx.username != null">
+                     and user.username like '%${userEx.username}%'
+                 </if>
+             </if>-->
+            <include refid="arvinSql"/>
+        </where>
+    </select>
+    
+    
+    <resultMap id="queryUserToItemsMap" type="com.qing.po.User">
+        <!--&lt;!&ndash; 定义user的信息 &ndash;&gt;-->
+        <!--<id column="id" property="id" />-->
+        <!--<result column="username" property="username" />-->
+        <!--<result column="sex" property="sex"/>-->
+        <!--<result column="address" property="address"/>-->
+
+        <!--&lt;!&ndash; User : orders = 1 : 1 &ndash;&gt;-->
+        <!--<association property="orders" javaType="com.qing.po.Orders">-->
+            <!--<id column="id" property="user_id"/>-->
+            <!--<result column="id" property="id"/>-->
+            <!--<result column="number" property="number"/>-->
+            <!--<result column="note" property="note"/>-->
+        <!--</association>-->
+
+        <!--&lt;!&ndash;1:m  order to orderdetail&ndash;&gt;-->
+        <!--<collection property="orderdetailList" ofType="com.ming.po.Orderdetail">-->
+            <!--<id column="orderdetail_id" property="id"/>-->
+            <!--<result column="items_id" property="itemsId"/>-->
+            <!--<result column="items_num" property="itemsNum"/>-->
+            <!--<result column="orders_id" property="ordersId"/>-->
+            <!--&lt;!&ndash;定义 orderdetail到items的信息&ndash;&gt;-->
+            <!--<association property="items" javaType="com.ming.po.Items">-->
+                <!--<id column="id" property="id"/>-->
+                <!--<result column="name" property="name"/>-->
+                <!--<result column="price" property="price"/>-->
+                <!--<result column="detail" property="detail"/>-->
+            <!--</association>-->
+        <!--</collection>-->
+
+        <!--定义user的信息-->
+        <id column="id" property="id"/>
+        <result column="id" property="id"/>
+        <result column="Myname" property="username"/>
+        <result column="sex" property="sex"/>
+        <result column="address" property="address"/>
+        <!--定义order信息-->
+        <association property="orders" javaType="com.qing.po.Orders">
+            <id column="id" property="userid"/>
+            <result column="note" property="note"/>
+        </association>
+        <!--定义orderDetail的信息-->
+        <collection property="orderdetailList" ofType="com.qing.po.Orderdetail">
+        <id column="orderdetail_id" property="id"/>
+        <result column="items_id" property="itemsId"/>
+        <result column="items_num" property="itemsNum"/>
+        <result column="orders_id" property="ordersId"/>
+        <!--定义 orderdetail到items的信息-->
+        <association property="items" javaType="com.qing.po.Items">
+            <id column="id" property="id"/>
+            <result column="name" property="name"/>
+            <result column="price" property="price"/>
+            <result column="detail" property="detail"/>
+        </association>
+        </collection>
+    </resultMap>
+    <select id="queryUserToItems" resultMap="queryUserToItemsMap">
+        select
+            orders.*,
+            user.id,
+            user.username as MyName,
+            user.sex,
+            user.address,
+            orderdetail.id as orderdetail_id,
+            orderdetail.items_id,
+            orderdetail.items_num,
+            orderdetail.orders_id,
+            items.id,
+            items.name,
+            items.price,
+            items.detail
+        from
+          orders inner join
+          user inner join
+          orderdetail inner join
+          items
+        where
+          orders.user_id = user.id
+        and
+          orders.id = orderdetail.orders_id
+        and
+          orderdetail.items_id = items.id;
+
+    </select>
+
+</mapper>
