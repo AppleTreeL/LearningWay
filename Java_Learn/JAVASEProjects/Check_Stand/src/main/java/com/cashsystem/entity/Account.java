@@ -70,4 +70,18 @@ public class Account {
     public void setAcountStatus(AcountStatus acountStatus) {
         this.acountStatus = acountStatus;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("【用户信息】:").append("\n")
+                .append("【用户编号】").append(this.getId()).append("\n")
+                .append("【用户账号】").append(this.getUsername()).append("\n")
+                .append("【用户密码】").append(this.getPassword()).append("\n")
+                .append("【用户姓名】").append(this.getName()).append("\n")
+                .append("【用户类型】") .append(this.getAcountType().getDesc()).append("\n")
+                .append("【用户状态】").append(this.getAcountStatus().getDesc()).append("\n");
+        sb.append("======================================================");
+        return sb.toString();
+    }
 }

@@ -66,6 +66,7 @@ public class Commands {
             if(commandMeta == null) {
                 continue;
             }
+            //System.out.println(command);
             String commandKey = commandMeta.name();
             if(adminCommand != null) {
                 ADMIN_COMMANDS.put(commandKey, command);

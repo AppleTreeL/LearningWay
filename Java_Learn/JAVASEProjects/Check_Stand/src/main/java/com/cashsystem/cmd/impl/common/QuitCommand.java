@@ -29,30 +29,32 @@ import java.io.InputStream;
 public class QuitCommand extends AbstractCommand {
     @Override
     public void execute(Subject subject) {
+
+        System.exit(0);
         //String path = "mspaint";
 
-        Runtime run = Runtime.getRuntime();
-
-        try {
-
-            Process process = run.exec("cmd.exe /k start ");
-
-            InputStream in = process.getInputStream();
-
-            while (in.read() != -1) {
-
-                System.out.println(in.read());
-
-            }
-
-            in.close();
-
-            process.waitFor();
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-
-        }
+//        Runtime run = Runtime.getRuntime();
+//
+//        try {
+//
+//            Process process = run.exec("cmd.exe /k start ");
+//
+//            InputStream in = process.getInputStream();
+//
+//            while (in.read() != -1) {
+//
+//                System.out.println(in.read());
+//
+//            }
+//
+//            in.close();
+//
+//            process.waitFor();
+//
+//        } catch (Exception e) {
+//
+//            e.printStackTrace();
+//
+//        }
     }
 }

@@ -26,6 +26,6 @@ public class AboutCommand extends AbstractCommand {
     @Override
     public void execute(Subject subject) {
         System.out.println("***********************");
-        System.out.println("******author: Mr.Liu***");
+        System.out.println("*****author: Mr.Liu****");
     }
 }

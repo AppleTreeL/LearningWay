@@ -19,6 +19,7 @@ public class Goods {
     private String unit;
     private Integer price;
     private Integer discount;
+    private Integer buyGoodsNumber;
 
     @Override
     public String toString() {

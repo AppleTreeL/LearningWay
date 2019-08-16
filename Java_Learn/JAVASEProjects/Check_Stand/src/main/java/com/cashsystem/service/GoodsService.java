@@ -34,4 +34,11 @@ public class GoodsService {
         return this.goodsDao.modifyGoods(goods);
     }
 
+    public boolean soldOut(int id) {
+        return this.goodsDao.soldOut(id);
+    }
+
+    public boolean updateAfterPay(Goods goods, int goodsNum) {
+        return this.goodsDao.updateAfterPay(goods, goodsNum);
+    }
 }

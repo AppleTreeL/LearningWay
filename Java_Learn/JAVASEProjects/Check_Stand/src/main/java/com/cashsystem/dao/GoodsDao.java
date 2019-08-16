@@ -32,6 +32,8 @@ public class GoodsDao extends BaseDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            this.closeResource(resultSet, preparedStatement, connection);
         }
         return list;
     }
@@ -132,6 +134,44 @@ public class GoodsDao extends BaseDao {
             e.printStackTrace();
         } finally {
             this.closeResource(resultSet, preparedStatement, connection);
+        }
+        return effect;
+    }
+
+    public boolean soldOut(int id) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        boolean effect = false;
+        try{
+            connection = this.getConnection(true);
+            String sql = "delete from goods where id=?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            effect = (preparedStatement.executeUpdate() == 1);
+            //return effect;
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            this.closeResource(null, preparedStatement, connection);
+        }
+        return effect;
+    }
+
+    public boolean updateAfterPay(Goods goods, int goodsBuyNum) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        boolean effect = false;
+        try{
+            connection = this.getConnection(true);
+            String sql = "update goods set stock=? where id=?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, goods.getStock()-goodsBuyNum);
+            preparedStatement.setInt(2, goods.getId());
+            effect = (preparedStatement.executeUpdate() == 1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            this.closeResource(null, preparedStatement, connection);
         }
         return effect;
     }

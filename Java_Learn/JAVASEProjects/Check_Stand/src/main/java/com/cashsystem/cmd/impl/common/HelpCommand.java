@@ -12,8 +12,6 @@ import com.cashsystem.entity.Account;
 
 import java.util.*;
 
-import static com.cashsystem.common.AcountType.CUSTOMER;
-
 /**
  * @Classname HelpCommand
  * @Description TODO
@@ -48,6 +46,7 @@ public class HelpCommand extends AbstractCommand {
         print("欢迎", Commands.ENTRANCE_COMMANDS.values());
     }
 
+    //values()方法返回的是value的集合。
     public void customerHelp() {
         print("客户端", Commands.CUSTOMER_COMMANDS.values());
     }
@@ -58,7 +57,7 @@ public class HelpCommand extends AbstractCommand {
 
     public void print(String title, Collection<Command> collection) {
         System.out.println("**********" + title + "*************");
-        Map<String, List<String>> helpInfo = new HashMap<>();
+        Map<String, List<String>> helpInfo = new HashMap<>();//List<String> = desc + name
         for (Command command : collection) {
             CommandMeta commandMeta = command.getClass().getDeclaredAnnotation(CommandMeta.class);
             String group = commandMeta.group();//Key
@@ -71,7 +70,7 @@ public class HelpCommand extends AbstractCommand {
             func.add(commandMeta.desc() +"(" + commandMeta.name() +")");
         }
 
-        //entrySet:
+        //entrySet: 取出键值对的集合， getKey()\ getValue()
         int i = 0;
         for (Map.Entry<String, List<String>> entry: helpInfo.entrySet()){
             i += 1;

@@ -18,6 +18,7 @@ public class CheckStand extends AbstractCommand {
     @Override
     public void execute(Subject subject) {
         Commands.getCacheHelpCommands().execute(subject);
+        //System.out.println("get start....");
         while (true) {
             System.out.println(">>");
             String line = scanner.nextLine();

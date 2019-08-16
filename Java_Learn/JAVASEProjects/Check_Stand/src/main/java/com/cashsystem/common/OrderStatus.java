@@ -21,7 +21,7 @@ public enum OrderStatus {
         this.flg = flg;
         this.desc = desc;
     }
-    public OrderStatus valueOf(int flg) {
+    public static OrderStatus valueOf(int flg) {
         for (OrderStatus orderStatus : values()) {
             if(orderStatus.flg == flg) {
                 return orderStatus;

@@ -3,6 +3,7 @@ package com.cashsystem.cmd.impl;
 import com.cashsystem.cmd.Command;
 import com.cashsystem.service.AccountService;
 import com.cashsystem.service.GoodsService;
+import com.cashsystem.service.OrderService;
 
 /**
  * @Classname AbstractCommand
@@ -14,9 +15,11 @@ public abstract class AbstractCommand implements Command {
     //start all service
     public AccountService accountService;
     public GoodsService goodsService;
+    public OrderService orderService;
 
     public AbstractCommand() {
         accountService = new AccountService();
         goodsService = new GoodsService();
+        orderService = new OrderService();
     }
 }
