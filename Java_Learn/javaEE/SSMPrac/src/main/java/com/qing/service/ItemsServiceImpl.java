@@ -63,4 +63,10 @@ public class ItemsServiceImpl implements ItemsService
            itemsMapperCustom.deleteItemsByIds(ids);
     }
 
+    @Override
+    public void batchUpdate(ItemsVO itemsVO) throws Exception {
+        List<ItemsCustom> itemsCustomList = itemsVO.getItemsList();
+        itemsMapperCustom.bachUpdate(itemsCustomList);
+    }
+
 }

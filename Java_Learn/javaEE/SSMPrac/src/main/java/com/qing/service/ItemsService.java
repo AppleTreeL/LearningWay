@@ -31,4 +31,7 @@ public interface ItemsService {
     //删除一组数据
     public void moveItemsByIds(Integer[] ids) throws Exception;
 
+    //批量修改
+    public void batchUpdate(ItemsVO itemsVO) throws Exception;
+
 }

@@ -12,4 +12,6 @@ public interface ItemsMapperCustom
     public List<ItemsCustom> queryItemsByName(ItemsVO itemsVO) throws Exception;
 
     public void deleteItemsByIds(Integer[] ids) throws Exception;
+
+    public void bachUpdate(List<ItemsCustom> itemsCustoms) throws Exception;
 }

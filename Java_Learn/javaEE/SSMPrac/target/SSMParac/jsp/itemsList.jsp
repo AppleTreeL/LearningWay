@@ -46,6 +46,12 @@
                 selItem[i].checked=chooseAll;
             }
         }
+        function batchUpdate() {
+            //alert(userinfoForm);
+            //var userinfoForm = document.getElementsByName("userinfoForm");
+            userinfoForm.action = 'batchUpdateShow.action';
+            userinfoForm.submit();
+        }
     </script>
 
 
@@ -60,7 +66,7 @@
                     <input type="button" name="modbtn" value="修改" onclick="operateData('checkboxupdate')" class="btn"/>
                     <input type="button" name="delbtn" value="删除" onclick="operateData('delete')" class="btn"/>
                     <input type="button" name="delbtn" value="查询" onclick="window.location.href='queryitemsbyname.action'" class="btn"/>
-                    <input type="button" name="multis" value="批量更新" onclick="operateData('multis')" class="btn"/>
+                    <input type="button" name="multis" value="批量更新" onclick="batchUpdate()" class="btn"/>
                 </td>
             </tr>
         </table>

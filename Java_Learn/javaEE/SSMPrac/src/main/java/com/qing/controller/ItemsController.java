@@ -5,6 +5,7 @@ import com.qing.po.ItemsCustom;
 import com.qing.po.ItemsVO;
 import com.qing.service.ItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -206,15 +207,30 @@ public class ItemsController {
         return "redirect:queryitemsbyname.action";
     }
 
-    @RequestMapping(value = "/batchModifyShow")
-    public String batchModifyShow(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    /*
+     * 跳转到修改页面
+     */
+    @RequestMapping(value = "/batchUpdateShow")
+    public String multiBatchshow(HttpServletResponse response,Model model, ItemsVO itemsVO)throws Exception{
         response.setContentType("text/html;charset=UTF-8");
+        List<ItemsCustom> itemsCustomList = itemsService.queryItemsByNameService(itemsVO);
 
-        String [] ids = request.getParameterValues("selItem");
-        Integer [] idss = new Integer[ids.length];
-        for (int i = 0 ; i < ids.length; i++) {
-            idss[i] = Integer.valueOf(ids[i]);
+        model.addAttribute("itemsListKey", itemsCustomList);
+        return "bachUpdateUI";
+    }
+
+    /*
+     * 修改功能的实现
+     */
+    @RequestMapping(value = "/bachUpdate")
+    public String batchUpdate(HttpServletResponse response,ItemsVO itemsVO, HttpServletRequest request) throws Exception {
+        response.setContentType("text/html;charset=UTF-8");
+        for (int i = 0 ;i < itemsVO.getItemsList().size(); i++) {
+            itemsVO.getItemsList().get(i).setDetail(new String(request.getParameter("itemsList[" + i + "].detail")
+            .getBytes("ISO8859-1"),"utf-8"));//解决中文乱码
+            System.out.println(itemsVO.getItemsList().get(i).getDetail());
         }
-
+        itemsService.batchUpdate(itemsVO);
+        return "redirect:queryitemsbyname.action";
     }
 }

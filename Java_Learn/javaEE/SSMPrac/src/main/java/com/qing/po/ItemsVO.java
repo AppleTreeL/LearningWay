@@ -1,6 +1,10 @@
 package com.qing.po;
 
 
+import sun.rmi.log.LogInputStream;
+
+import java.util.List;
+
 /**
  * 包装类
  * VO,PO,DTO  Hibernate(ORMapping)  mybatis(ORmapper)伪
@@ -18,6 +22,16 @@ public class ItemsVO
     private Items items;
 
     private ItemsCustom itemsCustom;
+
+    private List<ItemsCustom> itemsList;
+
+    public List<ItemsCustom> getItemsList() {
+        return itemsList;
+    }
+
+    public void setItemsList(List<ItemsCustom> itemsList) {
+        this.itemsList = itemsList;
+    }
 
     public Items getItems()
     {
